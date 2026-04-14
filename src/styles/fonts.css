@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'SamsungSS';
+    src: url('/fonts/SamsungSS/SamsungSSBody-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SamsungSS';
+    src: url('/fonts/SamsungSS/SamsungSSBody-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SamsungSS';
+    src: url('/fonts/SamsungSS/SamsungSSBody-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+

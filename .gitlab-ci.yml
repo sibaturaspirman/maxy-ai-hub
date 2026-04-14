@@ -1,0 +1,25 @@
+variables:
+  BPATH: /var/app/samsung/build
+
+stages:
+  - deploy_prd
+
+Deploy PROD:
+  stage: deploy_prd
+  tags:
+    - shell
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "master" && $CI_PIPELINE_SOURCE != "merge_request_event"
+  script:
+    - echo "Deploying Frontend to server prd"
+    - echo "https://galaxystudioexperience.com/KotaKasablanka"
+    - mkdir -p ~/.ssh
+    - echo "$GSC_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - echo "$GSC_KEY"
+    - chmod 700 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -H 18.141.142.169 >> ~/.ssh/known_hosts
+    - ssh ubuntu@18.141.142.169 "sudo chmod +x ${BPATH}/frontend.sh && sudo bash ${BPATH}/frontend.sh && exit"
+    - rm ~/.ssh/id_rsa
+    - echo "Deployed"

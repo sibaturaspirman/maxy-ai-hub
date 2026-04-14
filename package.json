@@ -1,0 +1,27 @@
+{
+  "name": "samsungstudiogalaxy",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "framer-motion": "^12.34.3",
+    "js-cookie": "^3.0.5",
+    "next": "16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "swiper": "^12.1.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^10",
+    "eslint-config-next": "16.1.6",
+    "tailwindcss": "^4"
+  }
+}
