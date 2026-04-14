@@ -34,7 +34,7 @@ export default function GalaxyStudioExperience({ profile, booth, malldata }) {
   const sectionRef = useRef(null);
   const [hideButton, setHideButton] = useState(false);
   const [infoJelajahiHide, setInfoJelajahiHide] = useState(false);
-  const [infoJelajahi, setInfoJelajahi] = useState(false);
+  const [infoJelajahi, setInfoJelajahi] = useState(true);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [claimHadiah, setClaimHadiah] = useState(false);
 
@@ -69,24 +69,24 @@ export default function GalaxyStudioExperience({ profile, booth, malldata }) {
       const rect = sectionRef.current.getBoundingClientRect();
       const isVisible = rect.top <= window.innerHeight / 2;
 
-      if (isVisible) {
-        setHasScrolled(true); // trigger hanya 1x
+      // if (isVisible) {
+      //   setHasScrolled(true); // trigger hanya 1x
 
-        // scroll ke section
-        window.scrollTo({
-          top: sectionRef.current.offsetTop,
-          behavior: "smooth",
-        });
+      //   // scroll ke section
+      //   window.scrollTo({
+      //     top: sectionRef.current.offsetTop,
+      //     behavior: "smooth",
+      //   });
 
-        setHideButton(true);
+      //   setHideButton(true);
 
-        if (!infoJelajahiHide) {
-          setTimeout(() => setInfoJelajahi(true), 1250);
-        }
+      //   if (!infoJelajahiHide) {
+      //     setTimeout(() => setInfoJelajahi(true), 1250);
+      //   }
 
-        // ✅ Hapus listener setelah selesai auto-scroll
-        window.removeEventListener("scroll", handleScroll);
-      }
+      //   // ✅ Hapus listener setelah selesai auto-scroll
+      //   window.removeEventListener("scroll", handleScroll);
+      // }
     };
 
     window.addEventListener("scroll", handleScroll);
