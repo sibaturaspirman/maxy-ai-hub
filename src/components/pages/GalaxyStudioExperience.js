@@ -153,7 +153,7 @@ export default function GalaxyStudioExperience({ profile, booth, malldata }) {
           </div>
         </div>
 
-        {!hideButton && (
+        {/* {!hideButton && (
           <div
             onClick={scrollToSection}
             className="fixed left-0 right-0 bottom-[6rem] mx-auto flex items-center justify-center"
@@ -168,7 +168,7 @@ export default function GalaxyStudioExperience({ profile, booth, malldata }) {
               />
             </button>
           </div>
-        )}
+        )} */}
 
         {!infoJelajahiHide && (
           <div
