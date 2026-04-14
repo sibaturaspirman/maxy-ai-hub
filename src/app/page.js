@@ -2,10 +2,10 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-black">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
-          src="/images/samsung-logo.png"
+          src="/images/logo-ag.png"
           alt="Next.js logo"
           width={180}
           height={28}
@@ -14,8 +14,8 @@ export default function Home() {
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://www.samsung.com/id/"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-white"
+          href="https://antigravity.id/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -26,7 +26,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Go to samsung.com/id/ →
+          Go to antigravity.id →
         </a>
       </footer>
     </div>

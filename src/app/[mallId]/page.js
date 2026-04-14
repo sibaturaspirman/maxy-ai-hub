@@ -15,14 +15,21 @@ export default function KotaKasablankaPage() {
     name: '',
     email: '',
     phone: '',
-    phoneType: '',
+    phoneType: 'Samsung',
     phoneModel: '',
-    agree: false,
+    agree: true,
   });
 
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const tokenDataGSE = localStorage.getItem('tokenDataGSE');
+    if (tokenDataGSE && mallId) {
+      router.replace(`/${mallId}/experience`);
+    }
+  }, [mallId, router]);
 
   useEffect(() => {
     const valid =
@@ -44,7 +51,7 @@ export default function KotaKasablankaPage() {
 
       if (field === 'email') {
         if (!/\S+@\S+\.\S+/.test(value)) {
-          newErrors.email = 'Format email tidak valid';
+          newErrors.email = 'Invalid email format';
         } else {
           delete newErrors.email;
         }
@@ -52,7 +59,7 @@ export default function KotaKasablankaPage() {
 
       if (field === 'phone') {
         if (!/^\d{10,}$/.test(value)) {
-          newErrors.phone = 'Nomor telepon tidak valid';
+          newErrors.phone = 'Invalid Whatsapp number format';
         } else {
           delete newErrors.phone;
         }
@@ -69,9 +76,9 @@ export default function KotaKasablankaPage() {
 
   const validate = () => {
     const errs = {};
-    if (!form.name.trim()) errs.name = 'Nama wajib diisi';
-    if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = 'Format email tidak valid';
-    if (!/^\d{10,}$/.test(form.phone)) errs.phone = 'Nomor telepon tidak valid';
+    if (!form.name.trim()) errs.name = 'Name is required';
+    if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = 'Invalid email format';
+    if (!/^\d{10,}$/.test(form.phone)) errs.phone = 'Invalid Whatsapp number format';
     if (!form.phoneType) errs.phoneType = 'Pilih tipe ponsel';
     if (!form.phoneModel.trim()) errs.phoneModel = 'Tipe HP harus diisi';
     if (!form.agree) errs.agree = 'Anda harus menyetujui syarat dan ketentuan';
@@ -103,7 +110,7 @@ export default function KotaKasablankaPage() {
         Cookies.set('tokenDataGSE', response.token, { expires: 7 });
         localStorage.setItem('formDataGSE', JSON.stringify(form));
         localStorage.setItem('tokenDataGSE', response.token);
-        router.push(`/${mallId}/home`);
+        router.push(`/${mallId}/experience`);
         // console.log(response)
       } catch (error) {
         alert('Gagal daftar: ' + error.message);
@@ -123,9 +130,9 @@ export default function KotaKasablankaPage() {
         {/* <h1 className="text-[32px] font-bold text-center leading-snug">
           Unfold power.<br />Flip the norm.
         </h1> */}
-        <div className="relative w-full">
+        <div className="relative w-[50%] mx-auto">
           <Image
-            src="/images/bloom/logo.png"
+            src="/images/maxy-logo.png"
             alt="Galaxy Studio Booth"
             width={320}
             height={80}
@@ -136,7 +143,8 @@ export default function KotaKasablankaPage() {
           {/* Daftar sekarang untuk mendapatkan pengalaman&nbsp;Galaxy yang mengagumkan<br />
           dan menangkan hadiah eksklusif <br />
           <strong>Galaxy&nbsp;Z&nbsp;Fold7&nbsp;|&nbsp;Z&nbsp;Flip7</strong> */}
-          Daftar sekarang Untuk mendapatkan pengalaman Galaxy yang mengagumkan dan menangkan hadiah eksklusif Galaxy S26 Series
+          Welcome to MAXY AI HUB. <br></br>
+          Sign up now to start your digital stamp collection and discover the power of AI at every station.
         </p>
 
         <form
@@ -147,7 +155,7 @@ export default function KotaKasablankaPage() {
           <div>
             <input
               type="text"
-              placeholder="Nama lengkap"
+              placeholder="Full Name"
               className={`w-full px-4 py-4 rounded-xl border-2 text-base ${
                 form.name
                   ? errors.name
@@ -187,7 +195,7 @@ export default function KotaKasablankaPage() {
           <div>
             <input
               type="tel"
-              placeholder="Nomor telepon"
+              placeholder="Whatsapp Number"
               className={`w-full px-4 py-4 rounded-xl border-2 text-base ${
                 form.phone
                   ? errors.phone
@@ -205,10 +213,10 @@ export default function KotaKasablankaPage() {
 
           {/* Phone Type Selection */}
           <div>
-            <p className="font-medium mt-2 mb-1">
+            <p className="font-medium mt-2 mb-1 hidden">
               Ponsel apa yang anda gunakan sekarang?
             </p>
-            <div className="space-y-3">
+            <div className="space-y-3 hidden">
               {['Samsung', 'NonGalaxy'].map((type) => (
                 <button
                   type="button"
@@ -239,7 +247,7 @@ export default function KotaKasablankaPage() {
               <div className="mt-1">
                 <input
                   type="text"
-                  placeholder={`Masukkan tipe ${
+                  placeholder={`Company / Community / University Name ${
                     form.phoneType === 'Samsung' ? 'Samsung' : 'HP'
                   }`}
                   className={`w-full px-4 py-4 rounded-xl border-2 text-base mt-2 ${
@@ -262,7 +270,7 @@ export default function KotaKasablankaPage() {
           </div>
 
           {/* Checkbox */}
-          <label className="flex items-start gap-3 text-sm text-gray-800">
+          <label className="flex items-start gap-3 text-sm text-gray-800 hidden">
             <input
               type="checkbox"
               checked={form.agree}
@@ -290,7 +298,7 @@ export default function KotaKasablankaPage() {
               <p className="text-center py-3">Mengirim data...</p>
             ) : (
               <Image
-                src="/images/bloom/btn-daftar.png"
+                src="/images/maxy-start.png"
                 className="w-full"
                 alt="Samsung"
                 width={288}

@@ -15,15 +15,15 @@ import { postStamp } from "@/lib/postStamp";
 let activeStampIndex = 0;
 let lokasi = [
   {
-    name: "Super steady video with Horizontal Lock",
+    name: "Explore Virtual Reality",
     stamp: false,
   },
   {
-    name: "Editing without Editing",
+    name: "Pose & Take a Picture",
     stamp: false,
   },
   {
-    name: "More Light, Less Noise",
+    name: "Play Flappy Maxy",
     stamp: false,
   }
 ];
@@ -723,7 +723,7 @@ export default function StampArea({ profile, booth, mallData }) {
 
   return (
     <main
-      className="flex bg-[#F4F4F4] overflow-y-auto overflow-hidden flex-col items-center pt-2 pb-5 px-5 lg:pt-12"
+      className="flex bg-[#F4F4F4] overflow-y-auto overflow-hidden flex-col items-center pt-0 pb-5 px-5 lg:pt-12"
       onContextMenu={(e) => e.preventDefault()}
     >
       <div
@@ -873,7 +873,7 @@ export default function StampArea({ profile, booth, mallData }) {
 
         {claimHadiah && (
           <Link
-            href={"/" + mallData + "/experience/spin"}
+            href={"/" + mallData + "/experience/unlocked"}
             className={`absolute bottom-[2rem] w-[max-content] pointer-events-nonex z-[45] ${
               profile?.samsungPrize != null ? "hidden" : ""
             }`}
@@ -910,11 +910,11 @@ export default function StampArea({ profile, booth, mallData }) {
       </div>
 
       {/* PILIH STYLE */}
-      <div className={`relative w-[94%] mx-auto mt-2 z-20`} data-aos="fade-up">
-        {/* <div className='w-[50%] mx-auto'>
-                    <Image src='/images/samsung-logo2.png' width={175} height={41} alt='Zirolu' className='w-full' priority />
-                </div> */}
-        <p className={`text-sm font-bold mt-1 text-center text-[#000000]`}>
+      <div className={`relative w-[94%] mx-auto mt-0 z-20`} data-aos="fade-up">
+        <div className='w-[30%] mx-auto'>
+            <Image src='/images/maxy-logo.png' width={175} height={41} alt='Zirolu' className='w-full' priority />
+        </div>
+        <p className={`text-sm font-bold mt-2 text-center text-[#000000]`}>
           Hi, {profile?.name || "Pengunjung"}!
         </p>
         <div className="relative w-full mt-0 p-1 px-0 pt-2">
@@ -955,7 +955,7 @@ export default function StampArea({ profile, booth, mallData }) {
                     }`}
                   >
                     <Link
-                      href={"/" + mallData + "/experience/spin"}
+                      href={"/" + mallData + "/experience/unlocked"}
                       className={`relative w-full blockpointer-events-nonex`}
                     >
                       {" "}
@@ -983,7 +983,7 @@ export default function StampArea({ profile, booth, mallData }) {
                     />
                   ) : (
                     <Image
-                      src={`/images/bloom/box-gi-${index + 1}.png`}
+                      src={`/images/maxy-box-${index + 1}.png`}
                       width={317}
                       height={422}
                       alt="Zirolu"
@@ -1017,7 +1017,7 @@ export default function StampArea({ profile, booth, mallData }) {
                     }`}
                   >
                     <Image
-                      src={"/images/bloom/stamp-check.png"}
+                      src={"/images/maxy-stamp-check.png"}
                       width={88}
                       height={88}
                       alt="Zirolu"
@@ -1055,7 +1055,7 @@ export default function StampArea({ profile, booth, mallData }) {
 
                 <div className="relative w-full mt-5">
                   <Image
-                    src={`/images/bloom/cara-${index + 1}.png`}
+                    src={`/images/maxy-cara-${index + 1}.png`}
                     width={317}
                     height={422}
                     alt="Zirolu"

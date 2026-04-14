@@ -14,8 +14,8 @@ export default function ClientLayout({ children }) {
 
   return (
     <>
-    <main className={`max-w-md mx-auto  ${showNav ? 'pb-24' : ''} `}>
-      <div className="px-4 pt-4 pb-7 text-center z-50 relative">
+    <main className={`max-w-md mx-auto pt-4  ${showNav ? 'pb-24' : ''} `}>
+      {/* <div className="px-4 pt-4 pb-7 text-center z-50 relative">
         <Image
           src="/images/samsung-logo.png"
           alt="Samsung Logo"
@@ -23,8 +23,10 @@ export default function ClientLayout({ children }) {
           height={16}
           priority
         />
-      </div>{children}</main>
-      {showNav && <BottomNav />}
+      </div> */}
+      
+      {children}</main>
+      {/* {showNav && <BottomNav />} */}
     </>
   );
 }

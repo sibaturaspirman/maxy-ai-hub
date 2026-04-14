@@ -115,7 +115,7 @@ export default function GalaxyStudioExperience({ profile, booth, malldata }) {
   return (
     <ProtectedPage>
       <div className="bg-gray-100 py-0">
-        <div className="min-h-screen w-full">
+        <div className="min-h-screen w-full hidden">
           <div className="px-4">
             <div className="relative w-full">
               <Image
@@ -179,7 +179,7 @@ export default function GalaxyStudioExperience({ profile, booth, malldata }) {
           >
             <div className="w-[80%] mx-auto relative">
                 <Image
-                  src="/images/bloom/jelajahi.png"
+                  src="/images/maxy-jelajahi.png"
                   width={320}
                   height={480}
                   alt="Zirolu"

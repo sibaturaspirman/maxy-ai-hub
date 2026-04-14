@@ -5,8 +5,8 @@ import '../styles/fonts.css';
 import RouteLoader from '@/components/RouteLoader';
 
 export const metadata = {
-    title: "Samsung Galaxy Studio Experience ",
-    description: "Daftar sekarang Untuk mendapatkan pengalaman Galaxy yang mengagumkan dan menangkan hadiah eksklusif Galaxy Z Fold7 | Z Flip7",
+    title: "Magic Stamp",
+    description: "Developed by AntiGRVTY",
   };
 
 export default function RootLayout({ children }) {
